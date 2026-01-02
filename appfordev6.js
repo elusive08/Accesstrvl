@@ -4,8 +4,8 @@ const app = express();
 app.use(express.json());
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/accessibilityDB';
 mongoose.connect(MONGO_URI)
-  .then(() => console.log('✅ MongoDB Connected'))
-  .catch(err => console.error('❌ DB Connection Error:', err));
+  .then(() => console.log(' MongoDB Connected'))
+  .catch(err => console.error(' DB Connection Error:', err));
 const PlaceSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: String,
@@ -57,4 +57,5 @@ app.post('/places', async (req, res) => {
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Dev 6 Search Engine running at http://localhost:${PORT}`);
+
 });
