@@ -1,7 +1,8 @@
+import "../modules/media/media.model.js"; // ✅ Registers Media model with Mongoose
 import mongooseLoader from "./mongooseLoader.js";
-import { configureCloudinary } from "../config/cloudinary.js";
+import routesLoader from "./routesLoader.js";
 
-export default async function loaders() {
-  await mongooseLoader();     // DB first
-  configureCloudinary();      // External service second
+export default async function loaders(app) {
+  await mongooseLoader();
+  routesLoader(app);
 }

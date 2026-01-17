@@ -1,4 +1,4 @@
-import placeRoutes from "../modules/places/index.js";
+import placeRoutes from "../modules/place/index.js";
 
 export default (app) => {
   app.use("/api/places", placeRoutes);

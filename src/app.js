@@ -1,16 +1,15 @@
+import "dotenv/config";
 import express from "express";
-import dotenv from "dotenv";
-dotenv.config();
+import loaders from "./loaders/index.js";
 
-import mongooseLoader from "./loaders/mongooseLoader.js";
-import placeRoutes from "./modules/place/index.js";
+// ✅ Register ONLY Week 2 models
+import "./modules/place/place.model.js";
+import "./modules/media/media.model.js";
 
 const app = express();
 
-await mongooseLoader();
-
 app.use(express.json());
 
-app.use("/api/places", placeRoutes);
+await loaders(app);
 
 export default app;
