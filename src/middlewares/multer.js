@@ -4,7 +4,12 @@ import { uploadMedia, getAllMedia } from "./media.controller.js";
 
 const router = Router();
 
-router.post("/upload", upload.single("file"), uploadMedia);
+router.post(
+  "/upload",
+  upload.single("file"), // ⬅️ NON-NEGOTIABLE
+  uploadMedia
+);
+
 router.get("/", getAllMedia);
 
 export default router;

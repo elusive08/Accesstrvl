@@ -4,16 +4,18 @@ const mediaSchema = new mongoose.Schema(
   {
     url: {
       type: String,
-      required: true
+      required: true,
+    },
+    public_id: {
+      type: String,
+      required: true,
     },
     contextTag: {
       type: String,
-      default: "general"
-    }
+      default: "general",
+    },
   },
-  {
-    timestamps: true
-  }
+  { timestamps: true }
 );
 
 export default mongoose.model("Media", mediaSchema);
